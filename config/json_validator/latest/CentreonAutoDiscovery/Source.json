@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Source condition mapper",
+  "description": "Source condition mapper",
+  "type": "object",
+  "anyOf": [
+    {
+      "additionalProperties": false,
+      "required": ["type", "value"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["string", "discovery"]
+        },
+        "value": {
+          "type": ["integer", "string"]
+        }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["type", "value", "index"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["string", "discovery"]
+        },
+        "value": {
+          "type": ["integer", "string"]
+        },
+        "index": {
+          "$ref": "SourceIndex.json"
+        },
+        "property": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  ]
+}

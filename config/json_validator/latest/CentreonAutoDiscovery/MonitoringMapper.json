@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Monitoring mapper",
+  "description": "Monitoring mapper",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "parameters"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "^monitoring$"
+    },
+    "parameters": {
+      "type": "object",
+      "required": ["value", "type", "conditions"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "Condition.json"
+          }
+        }
+      }
+    }
+  }
+}

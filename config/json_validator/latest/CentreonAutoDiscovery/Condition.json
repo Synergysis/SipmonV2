@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Condition mapper",
+  "description": "Condition mapper",
+  "type": "object",
+  "required": ["source", "value", "operator"],
+  "additionalProperties": false,
+  "properties": {
+    "source": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["name"],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "index": {
+              "$ref": "SourceIndex.json"
+            },
+            "property": {
+              "type": ["string", "null"]
+            }
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "value": {
+      "type": ["boolean", "integer", "null", "string", "number"]
+    },
+    "operator": {
+      "type": "string"
+    }
+  }
+}

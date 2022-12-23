@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Scheduler of discovery job",
+  "description": "Scheduler of discovery job",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cron_expression": {
+      "type": "string"
+    },
+    "minutes": {
+      "$ref": "#/definitions/global"
+    },
+    "hours": {
+      "$ref": "#/definitions/global"
+    },
+    "days": {
+      "$ref": "#/definitions/global"
+    },
+    "weekdays": {
+      "type": "string"
+    },
+    "months": {
+      "$ref": "#/definitions/global"
+    }
+  },
+  "definitions": {
+    "global": {
+      "type": "object",
+      "required": ["values"],
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "type": "string"
+        },
+        "every": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

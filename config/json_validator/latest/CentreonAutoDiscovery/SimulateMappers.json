@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Simulate mappers for a discovery job",
+  "type": "object",
+  "required": [
+    "credential_id",
+    "provider_id",
+    "mappers",
+    "job_parameters"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "credential_id": {
+      "type": ["integer", "null"]
+    },
+    "provider_id": {
+      "type": "integer"
+    },
+    "mappers": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "$ref": "HostCategoryMapper.json" },
+          { "$ref": "HostGroupMapper.json" },
+          { "$ref": "HostSeverityMapper.json" },
+          { "$ref": "MacroMapper.json" },
+          { "$ref": "PropertyMapper.json"},
+          { "$ref": "MonitoringMapper.json" },
+          { "$ref": "TemplateMapper.json" },
+          { "$ref": "ExclusionMapper.json" },
+          { "$ref": "InclusionMapper.json" }
+        ]
+      },
+      "minItems": 1
+    },
+    "job_parameters": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": ["string", "integer", "number", "null"]
+          }
+        },
+        "required": ["name", "value"]
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Macro mapper",
+  "description": "Macro mapper",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "parameters"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "^macro$"
+    },
+    "parameters": {
+      "type": "object",
+      "required": ["source", "destination", "is_password", "conditions"],
+      "properties": {
+        "source": {
+          "type": "array",
+          "items": {
+            "$ref": "Source.json"
+          }
+        },
+        "destination": {
+          "type": "string"
+        },
+        "is_password": {
+          "type": "boolean"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "Condition.json"
+          }
+        }
+      }
+    }
+  }
+}

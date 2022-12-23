@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Property mapper",
+  "description": "Property mapper",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "parameters"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "^property$"
+    },
+    "parameters": {
+      "type": "object",
+      "required": ["source", "destination", "conditions"],
+      "properties": {
+        "source": {
+          "type": "array",
+          "items": {
+            "$ref": "Source.json"
+          }
+        },
+        "destination": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "Condition.json"
+          }
+        }
+      }
+    }
+  }
+}

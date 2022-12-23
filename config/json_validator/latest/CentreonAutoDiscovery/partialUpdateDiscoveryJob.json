@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Partial update of a discovery job",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "execution_mode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "scheduling": {
+      "$ref": "DiscoveryJobScheduler.json"
+    },
+    "analysis_mode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "save_mode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 63
+    },
+    "credential_id": {
+      "type": ["integer", "null"]
+    },
+    "provider_id": {
+      "type": "integer"
+    },
+    "monitoring_server_id": {
+      "type": "integer"
+    },
+    "proxy": {
+      "$ref": "../Centreon/Proxy.json"
+    },
+    "alias": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "mappers": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "$ref": "HostCategoryMapper.json" },
+          { "$ref": "HostGroupMapper.json" },
+          { "$ref": "HostSeverityMapper.json" },
+          { "$ref": "MacroMapper.json" },
+          { "$ref": "PropertyMapper.json"},
+          { "$ref": "MonitoringMapper.json" },
+          { "$ref": "TemplateMapper.json" },
+          { "$ref": "ExclusionMapper.json" },
+          { "$ref": "InclusionMapper.json" }
+        ]
+      },
+      "minItems": 1
+    },
+    "job_parameters": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": ["string", "integer", "number", "null"]
+          }
+        },
+        "required": ["name", "value"]
+      }
+    }
+  }
+}

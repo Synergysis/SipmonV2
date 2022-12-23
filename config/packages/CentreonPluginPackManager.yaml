@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        public: false
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, controller...
+
+    PluginPackManager\:
+        resource: '../../src/PluginPackManager/*'
+
+    _instanceof:
+        PluginPackManager\Engine\Domain\Model\EngineCommandHandler:
+            tags: ['engine.command.generator']

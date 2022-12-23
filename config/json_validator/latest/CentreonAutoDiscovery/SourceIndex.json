@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Index of the source",
+  "description": "Index of the condition or parameter source",
+  "type": ["object", "null"],
+  "additionalProperties": false,
+  "required": ["key"],
+  "properties": {
+    "key": {
+      "type": ["string", "integer"]
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

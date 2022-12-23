@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Host severity mapper",
+  "description": "Host severity mapper",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "parameters"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "^host_severity$"
+    },
+    "parameters": {
+      "type": "object",
+      "required": [
+        "source",
+        "conditions"
+      ],
+      "properties": {
+        "source": {
+          "type": "array",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "type": {
+                "type": "string",
+                "pattern": "^host_severity$"
+              },
+              "value": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "Condition.json"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Update mappers",
+  "type": "array",
+  "additionalItems": false,
+  "items": {
+    "anyOf": [
+      { "$ref": "HostCategoryMapper.json" },
+      { "$ref": "HostGroupMapper.json" },
+      { "$ref": "HostSeverityMapper.json" },
+      { "$ref": "MacroMapper.json" },
+      { "$ref": "PropertyMapper.json"},
+      { "$ref": "MonitoringMapper.json" },
+      { "$ref": "TemplateMapper.json" },
+      { "$ref": "ExclusionMapper.json" },
+      { "$ref": "InclusionMapper.json" }
+    ]
+  },
+  "minItems": 1
+}
